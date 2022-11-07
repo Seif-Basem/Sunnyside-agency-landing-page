@@ -1,0 +1,401 @@
+:root{
+    --red: hsl(7, 99%, 70%);
+    --yellow: hsl(51, 100%, 49%);
+    --cyan: hsl(167, 40%, 24%);
+    --blue: hsl(198, 62%, 26%);
+    --footer: hsl(168, 34%, 41%);
+    --dark-blue: hsl(212, 27%, 19%);
+    --grey: hsl(213, 9%, 39%);
+    --White: hsl(0, 0%, 100%);
+    --Font-size: 18px;
+    --b-font: 'Barlow', sans-serif;
+    --f-font: 'Fraunces', serif;
+}
+body{
+    background-color: rgb(255, 247, 237);
+}
+::-webkit-scrollbar
+{
+    width: 10px;
+}
+::-webkit-scrollbar-track
+{
+    background-color: rgb(255, 247, 237);
+}
+::-webkit-scrollbar-thumb
+{
+    background-color: rgb(26, 188, 156, 0.7);
+    border-radius: 70px;
+}
+::-webkit-scrollbar-thumb:hover
+{
+    background-color: var(--cyan);
+}
+
+header{
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media(min-width: 992px){
+    header .burger{
+        display: none;
+    }
+}
+header .nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--b-font);
+}
+header .nav li,
+header .nav a{
+    margin-right: 70px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+header .nav li:hover{
+    color: var(--dark-blue);
+}
+header .nav a{
+    font-family: var(--f-font);
+    color: black;
+    background-color: var(--White);
+    padding: 15px 25px;
+    border-radius: 40px;
+    transition: 0.3s;
+}
+header .nav a:hover{
+    background-color: rgb(255, 255, 255, 0.4);
+    color: var(--White);
+}
+@media(max-width: 991px){
+    header .nav{
+        position: absolute;
+        flex-direction: column;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--White);
+        padding: 30px 0;
+        visibility: hidden;
+        opacity: 0;
+    }
+    header .nav::after{
+        content: "";
+        position: absolute;
+        top: -30px;
+        right: 0px;
+        border-width: 15px;
+        border-style: solid;
+        border-color: transparent white white transparent;
+    }
+    header .nav.active{
+        visibility: visible;
+        opacity: 1;
+    }
+    header .nav li{
+        color: var(--very-light-grey);
+        margin-right: 0px;
+        padding: 20px 128px;
+        margin-bottom: 5px;
+    }
+    header .nav li:hover{
+        color: var(--grey);
+    }
+    header .nav a{
+        background-color: var(--yellow);
+        margin-right: 0px;
+    }
+    header .nav a:hover{
+        background-color: rgb(250, 212, 0, 0.5);
+        color: black;
+        
+    }
+}
+
+.landing{
+    position: relative;
+    z-index: -1;
+    font-size: 0;
+}
+.landing img{
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+.landing .content{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 400px;
+}
+.landing .content h1{
+    font-family: var(--f-font);
+    color: var(--White);
+    font-size: 75px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 10px;
+    text-align: center;
+}
+@media (max-width: 767px) {
+    .landing .content h1{
+        font-size: 37px;
+    }
+}
+.landing .content img{
+    width: 50px;
+    height: 120px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: none;
+}
+@media (max-width: 767px) {
+    .landing .content img{
+        bottom: 152px;
+    }
+}
+
+section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0;
+}
+section.reverse{
+    flex-direction: row-reverse;
+}
+@media (max-width: 767px) {
+    section{
+        flex-direction: column-reverse;
+    }
+    section.reverse{
+        flex-direction: column-reverse;
+    }
+}
+section .box{
+    flex-basis: 50%;
+    padding: 0 250px;
+}
+@media (max-width: 767px) {
+    section .box{
+        flex-basis: 50%;
+        padding: 70px 20px;
+        text-align: center;
+    }
+}
+section .box h2{
+    font-family: var(--f-font);
+    font-weight: 900;
+    font-size: 50px;
+    color: var(--dark-blue);
+    margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+    section .box h2{
+        font-size: 30px;
+    }
+}
+section .box p{
+    font-family: var(--b-font);
+    color: var(--grey);
+    font-size: var(--Font-size);
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+section .box a{
+    font-family: var(--f-font);
+    color: var(--dark-blue);
+    text-transform: uppercase;
+    font-weight: 600; 
+    position: relative;
+    padding: 0 5px;
+}
+section .box a::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background-color: rgb(250, 212, 0, 0.3);
+    border-radius: 5px;
+    z-index: -1;
+    transition: 0.3s;
+}
+section .box a:hover::after{
+    background-color: var(--yellow);
+}
+section .box .second-btn{
+    font-family: var(--f-font);
+    color: var(--dark-blue);
+    text-transform: uppercase;
+    font-weight: 600; 
+    position: relative;
+    padding: 0 5px;
+}
+section .box .second-btn::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background-color: rgb(254, 120, 103, 0.3);
+    border-radius: 5px;
+    z-index: -1;
+    transition: 0.3s;
+}
+section .box .second-btn:hover::after{
+    background-color: var(--red);
+}
+section picture{
+    flex-basis: 50%;
+    position: relative;
+}
+section picture img{
+    width: 100%;
+}
+section picture .content{
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--blue)
+}
+section picture .content h2{
+    font-family: var(--f-font);
+    font-weight: 900;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+section picture .content p{
+    font-family: var(--b-font);
+    font-size: var(--Font-size);
+    line-height: 1.5;
+    padding: 0 30px;
+}
+@media (max-width: 767px){
+    section picture .content{
+        bottom: 10%;
+        width: 100%;
+    }
+    section picture .content h2{
+        font-size: 20px;
+    }
+    section picture .content p{
+        padding: 0 0px;
+        font-size: 13px;
+    }
+}
+
+.testemonials{
+    padding: 120px 0;
+}
+.testemonials h2{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--f-font);
+    color: var(--very-light-grey);
+    letter-spacing: 5px;
+    margin-bottom: 40px;
+}
+.testemonials .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.testemonials .box{
+    width: 350px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.testemonials .box img{
+    border-radius: 50%;
+    width: 80px;
+    margin-bottom: 50px;
+}
+.testemonials .box p{
+    font-family: var(--b-font);
+    font-size: var(--Font-size);
+    color: var(--grey);
+    line-height: 1.7;
+    margin-bottom: 50px;
+}
+.testemonials .box h4{
+    font-family: var(--f-font);
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+.testemonials .box span{
+    font-family: var(--b-font);
+    color: var(--very-light-grey);
+}
+
+.photos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0;
+}
+.photos img{
+    width: 475px;
+}
+@media (max-width: 767px) {
+    .photos img{
+        width: 187px;
+    }
+}
+
+footer{
+    background-color: var(--footer);
+    text-align: center;
+    padding: 40px 0;
+}
+footer .logo{
+    margin-bottom: 30px;
+}
+footer .logo path{
+    fill: var(--cyan);
+}
+footer .links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+footer .links li{
+    font-family: var(--b-font);
+    color: var(--cyan);
+    cursor: pointer;
+    transition: 0.3s;
+}
+footer .social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+footer .social li{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+footer .links li:hover{
+    color: white;
+}
+footer .social li:hover path{
+    fill: white;
+}
